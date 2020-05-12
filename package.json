@@ -1,0 +1,16 @@
+{
+  "name": "markdown-parser",
+  "version": "1.0.0",
+  "repository": "https://github.com/t-tajiri/markdown-parser",
+  "author": "t-tajiri <swallow.ava@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "front-matter": "^3.2.0"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
+}
