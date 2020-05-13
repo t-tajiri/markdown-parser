@@ -11,4 +11,16 @@ describe('test', () => {
     const content = main(testPath)
     expect(content.attributes.title).toBe('TEST ARTICLE')
   })
+
+  it('should exists html attribute', () => {
+    const content = main(testPath)
+    expect(content.html).toBeTruthy();
+  })
+
+  it('should parse iteric from single asterisk', () => {
+    const content = main(testPath)
+
+    expect(content.html).toMatch('<i>');
+    expect(content.html).toMatch('</i>');
+  })
 })
