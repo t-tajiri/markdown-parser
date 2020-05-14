@@ -14,13 +14,21 @@ describe('test', () => {
 
   it('should exists html attribute', () => {
     const content = main(testPath)
-    expect(content.html).toBeTruthy();
+    expect(content.html).toBeTruthy()
   })
 
   it('should parse iteric from single asterisk', () => {
     const content = main(testPath)
 
-    expect(content.html).toMatch('<i>');
-    expect(content.html).toMatch('</i>');
+    expect(content.html).toMatch('<i>')
+    expect(content.html).toMatch('</i>')
   })
+
+  it('should parse h1 from single sharp', () => {
+    const content = main(testPath)
+
+    expect(content.html).toMatch('<h1>TTITLE</h1>')
+  })
+
+  it.todo('should trim line break')
 })

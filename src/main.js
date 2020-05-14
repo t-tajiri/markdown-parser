@@ -9,17 +9,30 @@ function parse(path) {
 
   let text = content.body.split('')
 
-  let tagEnd = false
+  let itericTagEnd = false
+  let h1TagEnd = false
   for (let i = 0; i < text.length; i++) {
     if (/\*/.test(text[i])) {
-      if (tagEnd) {
+      if (itericTagEnd) {
         text[i] = '</i>'
+        itericTagEnd = false
       } else {
         text[i] = '<i>'
-        tagEnd = true
+        itericTagEnd = true
       }
     }
+
+    if (/#/.test(text[i])) {
+      text[i] = '<h1>'
+      h1TagEnd = true
+    }
+
+    if (h1TagEnd && /\n/.test(text[i])) {
+      text[i] = '</h1>'
+      h1TagEnd = false
+    }
   }
+
   content.html = text.join('')
 
   console.log(content.html)
