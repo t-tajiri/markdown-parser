@@ -24,12 +24,18 @@ function parse(path) {
 
     if (/#/.test(text[i])) {
       text[i] = '<h1>'
+      text[i + 1] = ''
+      i++;
       h1TagEnd = true
     }
 
-    if (h1TagEnd && /\n/.test(text[i])) {
-      text[i] = '</h1>'
-      h1TagEnd = false
+    if (/\n/.test(text[i])) {
+      if(h1TagEnd) {
+        text[i] = '</h1>'
+        h1TagEnd = false  
+      } else {
+        text[i] = ''
+      }
     }
   }
 

@@ -27,8 +27,15 @@ describe('test', () => {
   it('should parse h1 from single sharp', () => {
     const content = main(testPath)
 
-    expect(content.html).toMatch('<h1>TTITLE</h1>')
+    expect(content.html).toMatch('<h1>TITLE</h1>')
   })
 
-  it.todo('should trim line break')
+  it('should trim line break', () => {
+    const content = main(testPath)
+
+    expect(content.html).not.toMatch('\n')
+  })
+
+  it.todo('should parse bold from double asterisk')
+
 })
